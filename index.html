@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Library</title>
+
+		<link rel="stylesheet" href="./styles/reset.css" />
+		<link rel="stylesheet" href="./styles/main.css" />
+
+		<script type="module" src="./scripts/main.js" defer></script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="header">
+				<a href="#" class="logo">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="lucide lucide-library-big">
+						<rect width="8" height="18" x="3" y="3" rx="1" />
+						<path d="M7 3v18" />
+						<path
+							d="M20.4 18.9c.2.5-.1 1.1-.6 1.3l-1.9.7c-.5.2-1.1-.1-1.3-.6L11.1 5.1c-.2-.5.1-1.1.6-1.3l1.9-.7c.5-.2 1.1.1 1.3.6Z" />
+					</svg>
+				</a>
+				<h1>Library</h1>
+				<button id="showDialogBtn">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="lucide lucide-plus">
+						<path d="M5 12h14" />
+						<path d="M12 5v14" />
+					</svg>
+				</button>
+			</header>
+			<div id="bookshelf" class="bookshelf"></div>
+
+			<footer class="footer">
+				<p>
+					© 2024 Odin Project Assignment by
+					<a href="https://github.com/JamesChan" target="_blank">James Chen</a>.
+					All rights reserved.
+				</p>
+			</footer>
+		</div>
+		<dialog id="formDialog">
+			<form id="bookForm" method="dialog">
+				<h3>Add a New Book</h3>
+				<div class="form-row">
+					<label for="title">Title</label>
+					<input type="text" id="title" name="title" required />
+				</div>
+
+				<div class="form-row">
+					<label for="author">Author</label>
+					<input type="text" id="author" name="author" required />
+				</div>
+				<div class="form-row">
+					<label for="genre">Genre</label>
+					<input type="text" id="genre" name="genre" required />
+				</div>
+				<div class="form-row">
+					<label for="pages">Pages</label>
+					<input type="number" id="pages" name="pages" min="1" required />
+				</div>
+
+				<div class="form-row">
+					<input type="radio" id="isRead" name="read" value="true" />
+					<label for="isRead">Read</label>
+					<input type="radio" id="notRead" name="read" value="false" checked />
+					<label for="notRead">Not Read</label>
+				</div>
+
+				<form-row>
+					<button type="submit">Add</button>
+					<button type="button" id="cancelDialogBtn">Cancel</button>
+				</form-row>
+			</form>
+		</dialog>
+	</body>
+</html>
