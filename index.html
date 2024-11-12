@@ -59,12 +59,12 @@
 				</p>
 			</footer>
 		</div>
-		<dialog id="formDialog">
-			<form id="bookForm" method="dialog">
-				<h3>Add a New Book</h3>
+		<dialog id="formDialog" class="formDialog">
+			<form id="bookForm" class="bookForm" method="dialog">
+				<h3>Add New Book</h3>
 				<div class="form-row">
 					<label for="title">Title</label>
-					<input type="text" id="title" name="title" required />
+					<input type="text" id="title" name="title" autofocus required />
 				</div>
 
 				<div class="form-row">
@@ -81,16 +81,44 @@
 				</div>
 
 				<div class="form-row">
-					<input type="radio" id="isRead" name="read" value="true" />
-					<label for="isRead">Read</label>
-					<input type="radio" id="notRead" name="read" value="false" checked />
-					<label for="notRead">Not Read</label>
+					<p>Read</p>
+					<label for="isRead">
+						<input type="radio" id="isRead" name="read" value="true" />
+						Yes
+					</label>
+
+					<div>
+						<label for="notRead">
+							<input
+								type="radio"
+								id="notRead"
+								name="read"
+								value="false"
+								checked />
+							No
+						</label>
+					</div>
 				</div>
 
-				<form-row>
+				<div class="form-row">
 					<button type="submit">Add</button>
-					<button type="button" id="cancelDialogBtn">Cancel</button>
-				</form-row>
+				</div>
+				<button type="button" id="cancelDialogBtn">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="lucide lucide-x">
+						<path d="M18 6 6 18" />
+						<path d="m6 6 12 12" />
+					</svg>
+				</button>
 			</form>
 		</dialog>
 	</body>

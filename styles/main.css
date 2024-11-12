@@ -1,8 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
-	--primary: #e0eee8;
+	--primary: #edf1bb; /* more lime */
+	--primary: #b1d5c8; /* more blue */
+	--primary: #e0eee8; /* blue */
+	--primary: #f6f9e4;
+	--primary: #ecfccb; /* lime */
+
+	--secondary: #868c4e;
 	--secondary: #424c50;
+	--secondary: #13393e;
+	--secondary: #206864;
+	--secondary: #7c191e;
+	--secondary: #4f6f46;
+	--secondary: #45465e;
+	--secondary: rgb(15 47 61);
+	--secondary: rgb(16 129 159);
+	--secondary: rgb(10 79 98);
+	--secondary: rgb(33 107 150);
 }
 html {
 	height: 100%;
@@ -18,8 +33,6 @@ body {
 	height: 100%;
 	background-color: var(--primary);
 	color: #1f2937;
-
-	position: relative;
 }
 
 .container {
@@ -80,10 +93,21 @@ body {
 	transition: all 0.15s ease-out;
 	border-radius: 50%;
 	cursor: pointer;
+	outline: none;
+}
+
+.header button svg {
+	width: 100%;
+	height: 100%;
+	color: rgba(0 0 0 / 0.7);
 }
 
 .header button:hover {
-	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+	transform: scale(1.1);
+}
+
+.header button:hover svg {
+	color: rgba(0 0 0 / 1);
 }
 
 .bookshelf {
@@ -94,7 +118,7 @@ body {
 
 	/* border: 1px solid #000; */
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
 	grid-auto-rows: 240px;
 	place-items: center;
 	gap: 60px;
@@ -105,8 +129,11 @@ body {
 	height: 240px;
 	width: 180px;
 	background-color: var(--secondary);
-	color: #f4f4f5;
-	border-radius: 6px;
+	background-image: linear-gradient(135deg, rgb(57 139 162), rgb(30 100 120));
+	color: #262626;
+	color: #e5e7eb;
+	border-radius: 3px;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
 
 	text-align: center;
 	padding: 14px 10px 8px;
@@ -116,31 +143,41 @@ body {
 	justify-content: space-between;
 	align-items: center;
 
-	box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.15);
+	box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.25);
 	transition: all 0.2s ease-in-out;
 }
 
-.book:hover {
+/* .book:hover {
 	transform: translateY(-5px);
-}
+} */
 
 .bookTitle {
 	font-weight: 900;
+	flex: 3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .bookAuthor {
 	font-size: 1.4rem;
+	font-weight: 500;
+	flex: 1;
 }
 
 .bookGenre {
 	font-size: 1.4rem;
 	font-style: italic;
-	color: #a1a1aa;
+	font-weight: 500;
+	/* color: #262626; */
+
+	flex: 1;
 }
 
 .bookPages {
 	font-size: 1.4rem;
-	color: #a1a1aa;
+	/* color: #262626; */
+	flex: 1;
 }
 
 .bookPages::after {
@@ -162,35 +199,36 @@ body {
 }
 
 .book button:hover {
-	filter: brightness(1.2);
+	filter: brightness(1.25);
 }
 
 .book .read {
 	color: #16a34a;
 }
 
-.book .notRead {
+.book .unRead {
 	color: #d97706;
 }
 
-.deleteBookBtn {
-	color: #a1a1a1;
+.deleteBtn {
+	opacity: 0.4;
 }
 
-.deleteBookBtn:hover {
+.deleteBtn:hover {
 	color: #b91c1c;
+	opacity: 1;
 }
 
 .book .btnContainer {
 	width: 75%;
 	padding-top: 4px;
-	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	border-top: 1px solid rgba(255, 255, 255, 0.25);
 	display: flex;
 	justify-content: space-between;
 }
 
 .footer {
-	margin-bottom: 16px;
+	padding: 10px;
 }
 
 .footer p {
@@ -203,24 +241,148 @@ body {
 	font-weight: 700;
 }
 
-#formDialog {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	border: none;
-	border-radius: 8px;
-	padding: 20px;
-	background-color: #fff;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-	width: 400px;
-	height: 300px;
-	max-width: 90%;
+/* Style form */
+.bookForm {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
 
-	transition: transform 0.3s ease, opacity 0.3s ease;
+	padding: 24px 36px;
+	background-color: var(--primary);
+	position: relative;
 }
 
-#formDialog::backdrop {
-	background-color: rgba(0, 0, 0, 0.5); /* Overlay color */
-	backdrop-filter: blur(5px); /* Optional blur for a frosted effect */
+.bookForm h3 {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.bookForm .form-row {
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+.bookForm .form-row label,
+.bookForm .form-row p {
+	flex-basis: 64px;
+	/* text-align: end; */
+	font-weight: 500;
+}
+
+.bookForm .form-row input:not(input[type='radio']) {
+	flex: 1;
+	appearance: none;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	padding: 4px 12px;
+	outline: none;
+	background-color: inherit;
+}
+
+.bookForm .form-row input:not(input[type='radio']):focus {
+	border: 1px solid rgba(0, 0, 0, 0.38);
+	background-color: #fafaf9;
+}
+
+.bookForm button {
+	width: 100%;
+	height: 36px;
+	cursor: pointer;
+	border: none;
+	background-color: #262626;
+	color: #f4f4f5;
+	font-weight: 700;
+	border-radius: 4px;
+}
+
+.bookForm button:hover {
+	filter: brightness(1.25);
+}
+
+#cancelDialogBtn {
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	width: 36px;
+	height: 36px;
+
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+#cancelDialogBtn svg {
+	width: 100%;
+	height: 100%;
+	color: rgba(0 0 0 / 0.7);
+	stroke-width: 1px;
+}
+
+#cancelDialogBtn:hover svg {
+	width: 100%;
+	height: 100%;
+	color: rgba(0 0 0 / 1);
+	stroke-width: 1px;
+}
+
+/* style dialog */
+dialog {
+	margin: auto;
+	padding: 0;
+	border: none;
+	border-radius: 8px;
+	width: 100%;
+	max-width: 350px;
+}
+
+dialog[open] {
+	animation: fade-in 0.2s ease-in-out;
+}
+
+dialog {
+	animation: fade-out 0.2s ease-in-out;
+}
+
+dialog[open]::backdrop {
+	animation: backdrop-fade-in 0.2s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+		transform: scale(0);
+		display: none;
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+		display: block;
+	}
+}
+
+@keyframes fade-out {
+	from {
+		opacity: 1;
+		transform: scale(1);
+		display: block;
+	}
+	to {
+		opacity: 0;
+		transform: scale(0);
+		display: none;
+	}
+}
+
+@keyframes backdrop-fade-in {
+	from {
+		background-color: rgba(0 0 0 / 0);
+		backdrop-filter: blur(0px);
+	}
+	to {
+		background-color: rgba(0 0 0 / 0.7);
+		backdrop-filter: blur(3px);
+	}
 }
