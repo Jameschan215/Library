@@ -77,7 +77,7 @@ function updateShelfDisplay() {
 					<p class="bookGenre">${book.genre}</p>
 					<p class="bookPages">${book.pages} pages</p>
 
-					<div class="btnContainer">
+					<div>
 						<button class="deleteBtn">${ICONS.delete}</button>
 						<button class="${book.read ? 'read' : 'unRead'}">
 							${book.read ? ICONS.read : ICONS.unRead}

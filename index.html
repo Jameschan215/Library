@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 		<title>Library</title>
 
 		<link rel="stylesheet" href="./styles/reset.css" />
@@ -49,6 +50,7 @@
 					</svg>
 				</button>
 			</header>
+
 			<div id="bookshelf" class="bookshelf"></div>
 
 			<footer class="footer">
@@ -59,6 +61,7 @@
 				</p>
 			</footer>
 		</div>
+
 		<dialog id="formDialog" class="formDialog">
 			<form id="bookForm" class="bookForm" method="dialog">
 				<h3>Add New Book</h3>
@@ -80,14 +83,14 @@
 					<input type="number" id="pages" name="pages" min="1" required />
 				</div>
 
-				<div class="form-row">
-					<p>Read</p>
-					<label for="isRead">
-						<input type="radio" id="isRead" name="read" value="true" />
-						Yes
-					</label>
-
+				<div class="form-row radios">
+					<p>Read OR Not</p>
 					<div>
+						<label for="isRead">
+							<input type="radio" id="isRead" name="read" value="true" />
+							Yes
+						</label>
+
 						<label for="notRead">
 							<input
 								type="radio"
